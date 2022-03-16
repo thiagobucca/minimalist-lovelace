@@ -23,7 +23,7 @@ Minimalist Lovelace Home Assistant Dashboard
 
 [![Product Name Screen Shot][product-screenshot]](https://github.com/thiagobucca/minimalist-lovelace)
 
-Simple and Minimalist Dashboard for Home Assistant. This is running on my Raspberry Pi 8Gb at Home inside a Docker Container for
+Simple and Minimalistic Dashboard for Home Assistant Lovelace. This is running on my Raspberry Pi 8GB at Home as a Docker Container for
 the past year, rock solid. I made some changes mostly in stock custom room card to fit my needs. Feel free to get in touch and let me know
 what you think!
 
