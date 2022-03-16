@@ -6,7 +6,7 @@ Minimalist Lovelace Home Assistant Dashboard
 <br />
 <p align="center">
   <a href="https://github.com/thiagobucca/bucalarm-iot">
-    <img src="images/appIcon.jpg" alt="Logo" width="80" height="80">
+    <img src="images/logo.png" alt="Logo" width="80" height="80">
   </a>
 
   <h3 align="center">Minimalist Lovelace Home Assistant Dashboard</h3>
