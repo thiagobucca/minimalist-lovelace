@@ -31,16 +31,16 @@ what you think!
 
 ### Built With
 
-* [HomeAssistant](https://micropython.org/)
-* [Custom Button Card/](https://github.com/custom-cards/button-card)
-* [UI-Lovelace-Minimalist/](https://github.com/UI-Lovelace-Minimalist/UI)
+* [HomeAssistant](https://www.home-assistant.io/)
+* [Custom Button Card](https://github.com/custom-cards/button-card)
+* [UI-Lovelace-Minimalist](https://github.com/UI-Lovelace-Minimalist/UI)
 
 
 
 <!-- LICENSE -->
 ## License
 
-Distributed under the GNU License. See `LICENSE` for more information.
+Distributed under the MIT License. See `LICENSE` for more information.
 
 <!-- MARKDOWN LINKS & IMAGES -->
 [product-screenshot]: images/screenshots.png
