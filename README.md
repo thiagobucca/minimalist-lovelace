@@ -9,10 +9,10 @@ Minimalist Lovelace Home Assistant Dashboard
     <img src="images/logo.png" alt="Logo" width="80" height="80">
   </a>
 
-  <h3 align="center">Minimalist Lovelace Home Assistant Dashboard</h3>
+  <h3 align="center">Minimalist Dashboard</h3>
 
   <p align="center">
-    Minimalist Alarm Control App
+    Lovelace Home Assistant
     <br />
   </p>
 </p>
