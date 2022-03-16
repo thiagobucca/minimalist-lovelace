@@ -1,0 +1,251 @@
+---
+button_card_templates: !include_dir_merge_named "../../custom_components/ui_lovelace_minimalist/__ui_minimalist__/ulm_templates/"
+
+title: "Home Thiago"
+theme: "minimalist-desktop"
+background: "var(--background-image)"
+# views: !include_dir_merge_list "views/"
+views:
+  - title: "Example View"
+    path: 0
+    icon: "mdi:home"
+    cards:
+      - type: "vertical-stack"
+        cards:
+          - type: "custom:button-card"
+            template: "card_title"
+            name: "Olá, 
+                   Thiago!"
+          - type: "custom:button-card"
+            color_type: blank-card
+          - type: "custom:button-card"
+            color_type: blank-card
+          - type: horizontal-stack
+            cards:
+            - type: "custom:button-card"
+              color_type: blank-card
+            - type: 'custom:button-card'
+              template: chip_temperature
+              variables:
+                ulm_chip_temperature_inside:  sensor.temp_office
+                ulm_chip_temperature_outside: sensor.temp_varanda
+                ulm_chip_temperature_weather: weather.home_buckerlet
+            - type: 'custom:button-card'
+              template: chip_power_consumption
+              variables:
+                ulm_chip_electric_consumption: sensor.abc_consumo_ativo_total
+                ulm_chip_electric_price: sensor.abc_custo_mensal
+            - type: 'custom:button-card'
+              template: chip_icon_state
+              variables:
+                ulm_chip_icon_state_icon: '🏠'
+                ulm_chip_icon_state_entity: sensor.number_cool_persons_at_home
+            - type: 'custom:button-card'
+              template: chip_alarm
+              entity: alarm_control_panel.home_alarm
+              variables:
+                ulm_alarm_disarmed: "Desativado"
+                ulm_alarm_armed_away: "Ativado"
+                ulm_alarm_armed_home: "Ativado"
+                ulm_alarm_arming: "Ativando"
+                ulm_alarm_triggered: "Disparado"
+            - type: "custom:button-card"
+              color_type: blank-card
+            template: "card_title"
+          - type: "custom:button-card"
+            color_type: blank-card
+          - type: horizontal-stack
+            cards:
+            - type: "custom:button-card"
+              color_type: blank-card
+            - type: "custom:button-card"
+              template: chip_navigate
+              label: 'Câmeras'
+              variables:
+                ulm_chip_navigate_path: /51camera-yaml
+                ulm_chip_navigate_icon: mdi:cctv
+                ulm_chip_navigate_icon_color: lightblue
+            - type: "custom:button-card"
+              template: chip_navigate
+              label: 'Energia'
+              variables:
+                ulm_chip_navigate_path: /energy-yaml
+                ulm_chip_navigate_icon: mdi:power-plug
+                ulm_chip_navigate_icon_color: orange
+            - type: "custom:button-card"
+              template: chip_navigate
+              label: 'Lavadora'
+              variables:
+                ulm_chip_navigate_path: /lavadora-yaml
+                ulm_chip_navigate_icon: mdi:washing-machine
+                ulm_chip_navigate_icon_color: gray
+            - type: "custom:button-card"
+              color_type: blank-card
+          - type: "custom:button-card"
+            color_type: blank-card
+          - type: "custom:button-card"
+            color_type: blank-card
+          - type: "custom:button-card"
+            color_type: blank-card
+          - type: horizontal-stack
+            cards:         
+            - type: 'custom:button-card'
+              template:
+                - custom_card_room
+              name: Sala
+              entity: switch.luzsala
+              icon: mdi:lightbulb
+              tap_action:
+                action: toggle
+              entity: switch.luzsala
+              variables:
+                label_use_temperature: true
+                label_use_brightness: false
+                status_entity2: switch.xboxcmd
+                player_entity: media_player.xbox
+                gaming_sensor: binary_sensor.bucker6089_in_game
+                kodi_entity: media_player.kodi_xbox
+                temperature_entity: sensor.temp_sala
+                entity_1:
+                  entity_id: switch.ventiquarto
+                  templates:
+                    - yellow_on
+                  tap_action:
+                    action: call-service
+                    service: switch.toggle
+                    service_data:
+                      entity_id: switch.ventiquarto
+                entity_2:
+                  entity_id: switch.xboxcmd
+                  templates:
+                    - yellow_on
+                  tap_action:
+                    action: call-service
+                    service: switch.toggle
+                    service_data:
+                      entity_id: switch.xboxcmd
+                entity_3:
+                  entity_id: switch.ambilight
+                  templates:
+                    - yellow_on
+                  tap_action:
+                    action: call-service
+                    service: script.automation_ambilight_sala
+                entity_4:
+                  entity_id: media_player.xbox
+                  tap_action:
+                    action: call-service
+                    service: switch.toggle
+                    service_data:
+                      entity_id: switch.ambilight
+            - type: 'custom:button-card'
+              template:
+                - custom_card_room
+              name: Escritório
+              entity: switch.luzoffice
+              icon: mdi:lightbulb
+              tap_action:
+                action: toggle
+              entity: switch.luzoffice
+              variables:
+                label_use_temperature: true
+                label_use_brightness: false
+                ulm_card_light_enable_popup: true
+                temperature_entity: sensor.temp_office
+                player_entity: media_player.xbox
+                status_entity2: switch.xboxcmd
+                kodi_entity: media_player.kodi_xbox
+                gaming_sensor: binary_sensor.bucker6089_in_game
+                entity_1:
+                  entity_id: switch.ventilador
+                  templates:
+                    - yellow_on
+                  tap_action:
+                    action: call-service
+                    service: switch.toggle
+                    service_data:
+                      entity_id: switch.ventilador
+                entity_2:
+                  entity_id: switch.leds
+                  templates:
+                    - blue_on
+                  tap_action:
+                    action: call-service
+                    service: script.automation_leds_office
+          - type: horizontal-stack
+            cards:         
+            - type: 'custom:button-card'
+              template:
+                - custom_card_room_pop
+              name: Quarto
+              entity: switch.luzquarto
+              icon: mdi:lightbulb
+              tap_action:
+                action: toggle
+              entity: switch.luzquarto
+              variables:
+                label_use_temperature: true
+                label_use_brightness: false
+                status_entity: sensor.climate_ar
+                status_entity2: switch.tvquartocmd
+                temperature_entity: sensor.temp_quarto
+                player_entity: media_player.tv_do_quarto_3
+                entity_1:
+                  entity_id: climate.ar_quarto
+                  ulm_card_thermostat_enable_popup: true
+                entity_2:
+                  entity_id: switch.tvquartocmd
+                  templates:
+                    - yellow_on
+                  tap_action:
+                    action: call-service
+                    service: switch.toggle
+                    service_data:
+                      entity_id: switch.tvquartocmd
+                entity_3:
+                  entity_id: switch.ambilightquarto
+                  icon: mdi:checkbox-blank-circle
+                  templates:
+                    - yellow_on
+                  tap_action:
+                    action: call-service
+                    service: script.automation_ambilight_quarto
+                entity_4:
+                  entity_id: media_player.tv_do_quarto_3
+                  templates:
+                    - yellow_on
+                  tap_action:
+                    action: call-service
+                    service: media_player.toggle
+                    service_data:
+                      entity_id: media_player.tv_do_quarto_3
+            - type: 'custom:button-card'
+              template:
+                - custom_card_room
+              name: Varanda
+              entity: light.tasmota
+              pop_action: true
+              icon: mdi:lightbulb
+              tap_action:
+                action: toggle
+              variables:
+                label_use_temperature: true
+                label_use_brightness: false
+                ulm_card_light_enable_popup: true
+                status_entity2: switch.xboxcmd
+                kodi_entity: media_player.kodi_xbox
+                temperature_entity: sensor.temp_varanda
+                gaming_sensor: binary_sensor.bucker6089_in_game
+                player_entity: media_player.xbox
+                action_entity: sensor.temp_varanda
+                entity_1:
+                  entity_id: sensor.plant_dashboard
+                  templates:
+                    - green_on
+                  tap_action:
+                    action: navigate
+                    navigation_path: /plant-yaml
+
+
+
+                       
